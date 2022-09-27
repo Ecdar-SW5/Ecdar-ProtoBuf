@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "component.proto";
 
 package EcdarProtoBuf;
 
@@ -14,16 +15,18 @@ message Zone {
 
 message StateTuple {
   message LocationTuple {
-    string name = 1;
+    string id = 1;
     string componentName = 2;
   }
-  LocationTuple location = 1;
-  repeated Zone federation = 2;
+  repeated LocationTuple locations = 1;
+  repeated Zone federations = 2;
 }
 
 message Transition {
-  oneof edge {
-    string json = 1;
-    string xml = 2;
+  message EdgeTuple {
+    string id = 1;
+    string componentName = 2;
   }
+  // Figure out what we need here
+  repeated EdgeTuple edges = 1; //?
 }

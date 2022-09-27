@@ -12,7 +12,6 @@ message Component {
     string xml = 2;
   }
 }
-
 /*
 message Location {
     string id = 1;
@@ -38,14 +37,15 @@ message Nail {
 }
 
 message Edge {
-    string sourceLocation = 1;
-    string targetLocation = 2;
-    string status = 3;
-    string select = 4;
-    string guard = 5;
-    string update = 6;
-    string sync = 7;
-    repeated Nail nail = 8;
+    string id = 1;
+    string sourceLocationId = 2;
+    string targetLocationId = 3;
+    string status = 4;
+    string select = 5;
+    string guard = 6;
+    string update = 7;
+    string sync = 8;
+    repeated Nail nail = 9;
 }
 
 message Component {
