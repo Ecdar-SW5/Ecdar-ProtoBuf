@@ -18,8 +18,8 @@ message StateTuple {
     string id = 1;
     string componentName = 2;
   }
-  repeated LocationTuple locations = 1;
-  repeated Zone federations = 2;
+  LocationTuple locations = 1;
+  Zone zone = 2;
 }
 
 message Transition {
@@ -28,5 +28,7 @@ message Transition {
     string componentName = 2;
   }
   // Figure out what we need here
-  repeated EdgeTuple edges = 1; //?
+  StateTuple source = 1;
+  EdgeTuple edges = 2; //?
+  StateTuple destination = 3;
 }

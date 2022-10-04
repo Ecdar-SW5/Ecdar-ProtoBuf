@@ -54,11 +54,12 @@ message SimulationStartRequest {
 }
 
 message SimulationStepRequest {
-  StateTuple state = 1;
-  Transition transition = 2;
+  repeated StateTuple currentStates = 1;
+  repeated Transition possibleTransitions = 2;
+  Transition choosenTransition = 3;
 }
 
 message SimulationStepResponse {
-  StateTuple state = 1;
-  repeated Transition transitions = 2;
+  repeated StateTuple newCurrentStates = 1;
+  repeated Transition newPossibleTransitions  = 2;
 }
