@@ -50,16 +50,17 @@ message QueryResponse {
 }
 
 message SimulationStartRequest {
-  string system = 1; // e.g. "(A || B) && C" or "A<=B"
+  Component component = 1;
 }
 
 message SimulationStepRequest {
-  repeated StateTuple currentStates = 1;
-  repeated Transition possibleTransitions = 2;
-  Transition choosenTransition = 3;
+  Component component = 1;
+  repeated StateTuple currentStates = 2;
+  repeated Transition possibleTransitions = 3;
+  Transition choosenTransition = 4;
 }
 
 message SimulationStepResponse {
   repeated StateTuple newCurrentStates = 1;
-  repeated Transition newPossibleTransitions  = 2;
+  repeated Transition newPossibleTransitions = 2;
 }
