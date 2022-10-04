@@ -8,27 +8,33 @@ option java_package = "EcdarProtoBuf";
 option java_outer_classname = "ObjectProtos";
 
 message Zone {
+  message DifferenceBound{
+    sint32 bound = 1;
+    bool isInfinite = 2;
+  }
   int32 dimensions = 1;
-  repeated int32 matrix = 2;
-  // Maybe include a lookup table for the indices?
+  repeated differenceBound matrix = 2;
 }
 
-message StateTuple {
-  message LocationTuple {
+message State {
+  message Location {
     string id = 1;
     string componentName = 2;
   }
-  LocationTuple locations = 1;
+  Location location = 1;
   Zone zone = 2;
 }
 
-message Transition {
-  message EdgeTuple {
+message DicisionPoint {
+  message Dicision {
+    Edge edge = 1;
+    State destination = 2;
+  }
+  State source = 1;
+  repeated Dicision dicisions;
+}
+
+message Edge {
     string id = 1;
     string componentName = 2;
-  }
-  // Figure out what we need here
-  StateTuple source = 1;
-  EdgeTuple edges = 2; //?
-  StateTuple destination = 3;
 }

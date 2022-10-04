@@ -55,12 +55,10 @@ message SimulationStartRequest {
 
 message SimulationStepRequest {
   Component component = 1;
-  repeated StateTuple currentStates = 2;
-  repeated Transition possibleTransitions = 3;
-  Transition choosenTransition = 4;
+  repeated decisionPoint decisions = 2;
+  dicisionPoint choosenDecision =3
 }
 
 message SimulationStepResponse {
-  repeated StateTuple newCurrentStates = 1;
-  repeated Transition newPossibleTransitions = 2;
+  repeated decisionPoint newDecisionPoints = 1;
 }
