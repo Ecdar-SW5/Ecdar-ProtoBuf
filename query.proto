@@ -55,10 +55,10 @@ message SimulationStartRequest {
 
 message SimulationStepRequest {
   Component component = 1;
-  repeated decisionPoint decisions = 2;
-  dicisionPoint choosenDecision =3
+  repeated DecisionPoint decisions = 2;
+  Decision decision = 3;
 }
 
 message SimulationStepResponse {
-  repeated decisionPoint newDecisionPoints = 1;
+  repeated DecisionPoint newDecisionPoints = 1;
 }
