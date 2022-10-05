@@ -31,7 +31,6 @@ message QueryResponse {
 
   message RefinementResult {
     bool success = 1;
-    repeated StateTuple relation = 2;
   }
 
   message ComponentResult { Component component = 1; }
@@ -50,11 +49,17 @@ message QueryResponse {
 }
 
 message SimulationStartRequest {
-  Component component = 1;
+  string componentComposition = 1; // example: A || B || A
+  repeated Component component = 2;
+}
+
+message SimulationStartResponse {
+  int32 id = 1;
+  DecisionPoint initialDecisionPoint = 2;
 }
 
 message SimulationStepRequest {
-  Component component = 1;
+  int32 id = 1
   repeated DecisionPoint decisions = 2;
   Decision decision = 3;
 }

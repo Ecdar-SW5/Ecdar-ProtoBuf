@@ -17,4 +17,5 @@ service EcdarBackend {
     rpc SendQuery(Query) returns (QueryResponse);
     rpc StartSimulation(SimulationStartRequest) returns (SimulationStepResponse);
     rpc TakeSimulationStep(SimulationStepRequest) returns (SimulationStepResponse);
+    rpc StopSimulation(StopSimulationRequest) returns (google.protobuf.Empty);
 }

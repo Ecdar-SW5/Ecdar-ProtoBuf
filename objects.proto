@@ -8,36 +8,26 @@ option java_package = "EcdarProtoBuf";
 option java_outer_classname = "ObjectProtos";
 
 message Zone {
-  int32 dimensions = 1;
-  repeated int32 matrix = 2;
-  // Maybe include a lookup table for the indices?
-}
-
-message StateTuple {
-  message LocationTuple {
-    string name = 1;
-    // Maybe the component name? or some comp id?
-  }
-  LocationTuple location = 1;
-  repeated Zone federation = 2;
-}
-
-message SimulationZone {
   message DifferenceBound{
     sint32 bound = 1;
     bool isInfinite = 2;
+    bool isStrict = 3;
   }
   int32 dimensions = 1;
   repeated DifferenceBound matrix = 2;
 }
 
-message State {
+message LocationTuple {
   message Location {
     string id = 1;
     string componentName = 2;
   }
-  Location location = 1;
-  SimulationZone zone = 2;
+  repeated Location locations;
+}
+
+message State {
+  LocationTuple locationTuple = 1;
+  Zone zone = 2;
 }
 
 message DecisionPoint {
