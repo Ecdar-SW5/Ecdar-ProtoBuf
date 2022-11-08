@@ -63,7 +63,7 @@ message QueryResponse {
       bool success = 1;
       string reason = 2;
       State state = 3;
-      repeated Edge edges = 4;
+      repeated Path component_paths = 4;
     }
 
     oneof result {
