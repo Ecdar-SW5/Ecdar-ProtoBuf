@@ -41,7 +41,7 @@ message QueryResponse {
       repeated State relation = 2;
       string reason = 3;
       State state = 4;
-      string action = 4;
+      string action = 5;
     }
 
     message ComponentResult { Component component = 1; }
