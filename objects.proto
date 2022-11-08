@@ -68,6 +68,5 @@ message Decision {
 }
 
 message Path {
-  SpecificComponent specific_component = 1;
-  repeated string edge_ids = 2;
+  repeated string edge_ids = 1;
 }
