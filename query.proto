@@ -41,6 +41,7 @@ message QueryResponse {
       repeated State relation = 2;
       string reason = 3;
       State state = 4;
+      string action = 5;
     }
 
     message ComponentResult { Component component = 1; }
@@ -48,11 +49,13 @@ message QueryResponse {
       bool success = 1;
       string reason = 2;
       State state = 3;
+      string action = 4;
     }
     message DeterminismResult {
       bool success = 1;
       string reason = 2;
       State state = 3;
+      string action = 4;
     }
     message ImplementationResult {
       bool success = 1;
