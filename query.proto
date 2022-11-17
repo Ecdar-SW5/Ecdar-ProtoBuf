@@ -25,6 +25,12 @@ message QueryRequest {
   string query = 3;
   ComponentsInfo components_info = 4;
   IgnoredInputOutputs ignored_input_outputs = 5;
+
+  message Settings {
+    optional int32 reduce_clocks_level = 1;
+  }
+
+  Settings settings = 6;
 }
 
 message QueryResponse { 
@@ -78,6 +84,11 @@ message QueryResponse {
       ImplementationResult implementation = 8;
       ReachabilityResult reachability = 9;
     }
+    message Information {
+      string subject = 1;
+      string message = 2;
+    }
+    repeated Information info = 10;
   }
 }
 
@@ -103,3 +114,4 @@ message SimulationInfo {
   string component_composition = 2; // example: A || B || A
   ComponentsInfo components_info = 3;
 }
+
