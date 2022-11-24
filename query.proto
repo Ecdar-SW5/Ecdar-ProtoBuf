@@ -36,68 +36,56 @@ message QueryRequest {
   Settings settings = 6;
 }
 
-message QueryResponse { 
-  oneof response {
-    QueryOk query_ok = 1;
-    UserTokenError user_token_error = 2;  
+message QueryResponse {
+  int32 query_id = 1;
+
+  message RefinementResult {
+    bool success = 1;
+    repeated State relation = 2;
+    string reason = 3;
+    State state = 4;
+    string action = 5;
   }
 
-  message QueryOk {
-    int32 query_id = 1;
-
-    message RefinementResult {
-      bool success = 1;
-      repeated State relation = 2;
-      string reason = 3;
-      State state = 4;
-      string action = 5;
-    }
-
-    message ComponentResult { Component component = 1; }
-    message ConsistencyResult {
-      bool success = 1;
-      string reason = 2;
-      State state = 3;
-      string action = 4;
-    }
-    message DeterminismResult {
-      bool success = 1;
-      string reason = 2;
-      State state = 3;
-      string action = 4;
-    }
-    message ImplementationResult {
-      bool success = 1;
-      string reason = 2;
-      State state = 3;
-    }
-    message ReachabilityResult {
-      bool success = 1;
-      string reason = 2;
-      State state = 3;
-      repeated Path component_paths = 4;
-    }
-
-    oneof result {
-      RefinementResult refinement = 3;
-      ComponentResult component = 4;
-      ConsistencyResult consistency = 5;
-      DeterminismResult determinism = 6;
-      string error = 7;
-      ImplementationResult implementation = 8;
-      ReachabilityResult reachability = 9;
-    }
-    message Information {
-      string subject = 1;
-      string message = 2;
-    }
-    repeated Information info = 10;
+  message ComponentResult { Component component = 1; }
+  message ConsistencyResult {
+    bool success = 1;
+    string reason = 2;
+    State state = 3;
+    string action = 4;
   }
-}
+  message DeterminismResult {
+    bool success = 1;
+    string reason = 2;
+    State state = 3;
+    string action = 4;
+  }
+  message ImplementationResult {
+    bool success = 1;
+    string reason = 2;
+    State state = 3;
+  }
+  message ReachabilityResult {
+    bool success = 1;
+    string reason = 2;
+    State state = 3;
+    repeated Path component_paths = 4;
+  }
 
-message UserTokenError {
-  int32 user_id = 1;
-  string error_message = 2;
+  oneof result {
+    RefinementResult refinement = 3;
+    ComponentResult component = 4;
+    ConsistencyResult consistency = 5;
+    DeterminismResult determinism = 6;
+    string error = 7;
+    ImplementationResult implementation = 8;
+    ReachabilityResult reachability = 9;
+  }
+  message Information {
+    string subject = 1;
+    string message = 2;
+  }
+  repeated Information info = 10;
 }
 
 message SimulationStartRequest {
