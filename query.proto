@@ -27,12 +27,9 @@ message QueryRequest {
   IgnoredInputOutputs ignored_input_outputs = 5;
 
   message Settings {
-    oneof reduce_clocks_level {
-      int32 Level = 1;      // Specifies the level of the clock reduction
-      bool All = 2;         // Determines if all (true) or nothing (false) should be clock reduced
-    }
+    bool disable_clocks_level = 1;
   }
-
+  
   Settings settings = 6;
 }
 
