@@ -66,3 +66,7 @@ message Decision {
   State source = 1;
   Edge edge = 2;
 }
+
+message Path {
+  repeated string edge_ids = 1;
+}
